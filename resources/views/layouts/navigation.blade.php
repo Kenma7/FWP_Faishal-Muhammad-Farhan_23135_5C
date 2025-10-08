@@ -10,13 +10,21 @@
                     </a>
                 </div>
 
+                 
+
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('product-index')" :active="request()->routeIs('product')">
+                        {{ __('Product') }}
+                    </x-nav-link>
                 </div>
             </div>
+
+
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
@@ -88,8 +96,7 @@
                     </button>
                 </x-slot>
                 <x-slot name="content">
-                    <x-dropdown-link
-                        :href="route('product-create')">
+                    <x-dropdown-link :href="route('product-index')">
                         Product Master
                     </x-dropdown-link>
                 </x-slot>

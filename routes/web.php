@@ -8,8 +8,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-route::get('/product/create', [ProductController::class, 'create'])->name ("product-create");
-route::post('/product', [ProductController::class, 'store'])->name ("product-store");
+Route::get('/product', [ProductController::class, 'index'])->name ('product-index');
+Route::get('/product/create', [ProductController::class, 'create'])->name ("product-create");
+Route::post('/product', [ProductController::class, 'store'])->name ("product-store");
+Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name ('product-edit');
+Route::put('/product/{id}', [ProductController::class, 'update'])->name ('product-update');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -21,6 +25,5 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/product', [ProductController::class, 'index']);
 
 require __DIR__.'/auth.php';
